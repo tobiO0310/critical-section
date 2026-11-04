@@ -1,0 +1,71 @@
+2026/11/04 17:11:45 server.go:88: [SERVER]	server is listening on rpc://localhost:3003
+				Press Ctrl+C to exit.
+2026/11/04 17:11:45 server.go:137: Trying to connect to server with id 0, at localhost:3000 ...
+2026/11/04 17:11:45 server.go:145: Connected, will save connection now.
+2026/11/04 17:11:45 server.go:137: Trying to connect to server with id 1, at localhost:3001 ...
+2026/11/04 17:11:45 server.go:145: Connected, will save connection now.
+2026/11/04 17:11:45 server.go:137: Trying to connect to server with id 2, at localhost:3002 ...
+2026/11/04 17:11:45 server.go:145: Connected, will save connection now.
+2026/11/04 17:11:45 server.go:137: Trying to connect to server with id 4, at localhost:3004 ...
+2026/11/04 17:11:45 server.go:145: Connected, will save connection now.
+2026/11/04 17:11:45 server.go:137: Trying to connect to server with id 5, at localhost:3005 ...
+2026/11/04 17:11:45 server.go:145: Connected, will save connection now.
+2026/11/04 17:11:45 server.go:137: Trying to connect to server with id 6, at localhost:3006 ...
+2026/11/04 17:11:45 server.go:145: Connected, will save connection now.
+2026/11/04 17:11:45 server.go:137: Trying to connect to server with id 7, at localhost:3007 ...
+2026/11/04 17:11:45 server.go:145: Connected, will save connection now.
+2026/11/04 17:11:45 server.go:137: Trying to connect to server with id 8, at localhost:3008 ...
+2026/11/04 17:11:45 server.go:145: Connected, will save connection now.
+2026/11/04 17:11:45 server.go:137: Trying to connect to server with id 9, at localhost:3009 ...
+2026/11/04 17:11:45 server.go:145: Connected, will save connection now.
+2026/11/04 17:11:46 server.go:162: Sleeping for 952 milliseconds (for random access) and then trying to get into critical section
+2026/11/04 17:11:46 server.go:51: Gotten request from 9
+2026/11/04 17:11:46 server.go:54: 9 is allowed to run, either because I don't want it or they asked first
+2026/11/04 17:11:46 server.go:51: Gotten request from 8
+2026/11/04 17:11:46 server.go:54: 8 is allowed to run, either because I don't want it or they asked first
+2026/11/04 17:11:46 server.go:51: Gotten request from 6
+2026/11/04 17:11:46 server.go:54: 6 is allowed to run, either because I don't want it or they asked first
+2026/11/04 17:11:46 server.go:51: Gotten request from 0
+2026/11/04 17:11:46 server.go:54: 0 is allowed to run, either because I don't want it or they asked first
+2026/11/04 17:11:46 server.go:51: Gotten request from 5
+2026/11/04 17:11:46 server.go:54: 5 is allowed to run, either because I don't want it or they asked first
+2026/11/04 17:11:46 server.go:51: Gotten request from 2
+2026/11/04 17:11:46 server.go:54: 2 is allowed to run, either because I don't want it or they asked first
+2026/11/04 17:11:46 server.go:51: Gotten request from 4
+2026/11/04 17:11:46 server.go:54: 4 is allowed to run, either because I don't want it or they asked first
+2026/11/04 17:11:46 server.go:51: Gotten request from 1
+2026/11/04 17:11:46 server.go:54: 1 is allowed to run, either because I don't want it or they asked first
+2026/11/04 17:11:46 server.go:165: Sending request to 0... 
+2026/11/04 17:11:46 server.go:181: done
+2026/11/04 17:11:46 server.go:165: Sending request to 1... 
+2026/11/04 17:11:46 server.go:75: Gotten acceptance from a server, will count it
+2026/11/04 17:11:46 server.go:181: done
+2026/11/04 17:11:46 server.go:165: Sending request to 4... 
+2026/11/04 17:11:46 server.go:75: Gotten acceptance from a server, will count it
+2026/11/04 17:11:46 server.go:181: done
+2026/11/04 17:11:46 server.go:75: Gotten acceptance from a server, will count it
+2026/11/04 17:11:46 server.go:165: Sending request to 5... 
+2026/11/04 17:11:46 server.go:181: done
+2026/11/04 17:11:46 server.go:165: Sending request to 6... 
+2026/11/04 17:11:46 server.go:75: Gotten acceptance from a server, will count it
+2026/11/04 17:11:46 server.go:181: done
+2026/11/04 17:11:46 server.go:165: Sending request to 7... 
+2026/11/04 17:11:46 server.go:75: Gotten acceptance from a server, will count it
+2026/11/04 17:11:47 server.go:51: Gotten request from 7
+2026/11/04 17:11:47 server.go:54: 7 is allowed to run, either because I don't want it or they asked first
+2026/11/04 17:11:47 server.go:181: done
+2026/11/04 17:11:47 server.go:165: Sending request to 8... 
+2026/11/04 17:11:47 server.go:75: Gotten acceptance from a server, will count it
+2026/11/04 17:11:47 server.go:181: done
+2026/11/04 17:11:47 server.go:165: Sending request to 2... 
+2026/11/04 17:11:47 server.go:75: Gotten acceptance from a server, will count it
+2026/11/04 17:11:47 server.go:181: done
+2026/11/04 17:11:47 server.go:165: Sending request to 9... 
+2026/11/04 17:11:47 server.go:75: Gotten acceptance from a server, will count it
+2026/11/04 17:11:47 server.go:181: done
+2026/11/04 17:11:47 server.go:183: Sent all requests, waiting for enough responses
+2026/11/04 17:11:47 server.go:75: Gotten acceptance from a server, will count it
+2026/11/04 17:11:47 server.go:188: Gotten reply from everyone!!
+2026/11/04 17:11:47 server.go:26: [CRITICAL] very critical guys!!
+2026/11/04 17:11:47 server.go:193: Will send out a reply to everyone in my queue
+2026/11/04 17:11:47 server.go:200: Sent reply to everyone!
