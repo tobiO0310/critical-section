@@ -1,0 +1,23 @@
+syntax = "proto3";
+package proto;
+option go_package = "cs/proto/proto";
+
+message CanIRequest {
+    int64 time = 1;
+    int64 id = 2;
+}
+message CanIResponse {
+    int64 time = 1;
+}
+
+message YouMayNowRequest {
+    int64 time = 1;
+}
+message YouMayNowResponse {
+    int64 time = 1;
+}
+
+service CriticalSectionService {
+    rpc CanI(CanIRequest) returns (CanIResponse);
+    rpc YouMayNow(YouMayNowRequest) returns (YouMayNowResponse);
+}
