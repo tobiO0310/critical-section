@@ -161,22 +161,25 @@ func main() {
 		sleepTime := time.Duration(rand.Intn(1_000) * 1_000_000);
 		log.Printf("Sleeping for %d milliseconds (for random access) and then trying to get into critical section", sleepTime.Milliseconds())
 		time.Sleep(sleepTime)
-		service.mutex.Lock()
 		for i, client := range service.connections {
 			log.Printf("Sending request to %d... ", i)
+			service.mutex.Lock()
 			service.timestamp += 1
+			req := &proto.CanIRequest{ Time: int64(service.timestamp), Id: id };
+			service.mutex.Unlock()
 			res, err := client.CanI(
 				context.Background(),
-				&proto.CanIRequest{ Time: int64(service.timestamp), Id: id },
+				req,
 			)
 			if err != nil {
 				log.Fatalf("failed\n");
 			}
+			service.mutex.Lock()
 			service.timestamp = max(service.timestamp, uint64(res.Time));
 			service.timestamp += 1;
+			service.mutex.Unlock()
 			log.Printf("done\n")
 		}
-		service.mutex.Unlock()
 		log.Println("Sent all requests, waiting for enough responses");
 
 		for service.replies_gotten < uint64(serverAmount)-1 { // -1 for nirself!
