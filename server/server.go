@@ -185,14 +185,19 @@ func main() {
 		for service.replies_gotten < uint64(serverAmount)-1 { // -1 for nirself!
 			time.Sleep(10 * time.Millisecond) // wait till has enough replies
 		}
+		log.Printf("Gotten reply from everyone!!\n")
 
 		service.mutex.Lock()
 		CRITICAL_SECTION_RUNNER() // OMG I CAN RUN THE CRITICAL SECTION?!?!?!
 
+		log.Printf("Will send out a reply to everyone in my queue\n")
 		for asked := range service.queue { // now i'll let the others waiting on me get in on the action :)
+			log.Printf("Sending to %d...", asked)
 			service.timestamp += 1
 			service.connections[int64(asked)].YouMayNow(context.Background(), &proto.YouMayNowRequest{})
+			log.Printf("done\n")
 		}
+		log.Printf("Sent reply to everyone!\n")
 		service.queue = make([]int64, 0);
 		service.mutex.Unlock()
 	}()
