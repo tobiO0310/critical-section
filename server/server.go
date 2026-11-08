@@ -81,7 +81,7 @@ func (s *CriticalSectionService) YouMayNow(ctx context.Context, in *proto.YouMay
 }
 
 func listen(id int) net.Listener {
-	lis, netErr := net.Listen("tcp", fmt.Sprintf("localhost:%d",  portOfId0+id))
+	lis, netErr := net.Listen("tcp", fmt.Sprintf("localhost:%d", portOfId0+id))
 	if netErr != nil {
 		log.Fatalf("[SERVER] failed to listen: %v\n", netErr)
 	} else {
@@ -127,7 +127,7 @@ func main() {
 	}()
 
 	service := CriticalSectionService{
-		id: id,
+		id:          id,
 		connections: make(map[int64]proto.CriticalSectionServiceClient, serverAmount),
 	}
 
@@ -161,29 +161,29 @@ func main() {
 			time.Sleep(time.Second)
 		}
 
-		sleepTime := time.Duration(rand.Intn(1_000) * 1_000_000);
+		sleepTime := time.Duration(rand.Intn(1_000) * 1_000_000)
 		log.Printf("Sleeping for %d milliseconds (for random access) and then trying to get into critical section", sleepTime.Milliseconds())
 		time.Sleep(sleepTime)
 		for i, client := range service.connections {
 			log.Printf("Sending request to %d... ", i)
 			service.mutex.Lock()
 			service.timestamp += 1
-			req := &proto.CanIRequest{ Time: int64(service.timestamp), Id: id };
+			req := &proto.CanIRequest{Time: int64(service.timestamp), Id: id}
 			service.mutex.Unlock()
 			res, err := client.CanI(
 				context.Background(),
 				req,
 			)
 			if err != nil {
-				log.Fatalf("failed\n");
+				log.Fatalf("failed\n")
 			}
 			service.mutex.Lock()
-			service.timestamp = max(service.timestamp, uint64(res.Time));
-			service.timestamp += 1;
+			service.timestamp = max(service.timestamp, uint64(res.Time))
+			service.timestamp += 1
 			service.mutex.Unlock()
 			log.Printf("done\n")
 		}
-		log.Println("Sent all requests, waiting for enough responses");
+		log.Println("Sent all requests, waiting for enough responses")
 
 		for service.replies_gotten < uint64(serverAmount)-1 { // -1 for nirself!
 			time.Sleep(10 * time.Millisecond) // wait till has enough replies
@@ -201,7 +201,7 @@ func main() {
 			log.Printf("done\n")
 		}
 		log.Printf("Sent reply to everyone!\n")
-		service.queue = make([]int64, 0);
+		service.queue = make([]int64, 0)
 		service.mutex.Unlock()
 	}()
 
