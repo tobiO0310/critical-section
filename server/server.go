@@ -92,8 +92,11 @@ func listen(id int) net.Listener {
 
 func main() {
 	id, idErr := strconv.ParseInt(os.Getenv("CS_ID"), 10, 16)
-	if idErr != nil {
-		fmt.Println("Invalid id given in CS_ID environment variable")
+	if idErr != nil || id < 0 || id >= int64(serverAmount) {
+		fmt.Printf(
+			"Invalid id given in CS_ID environment variable, value must be in the range [0; %d]\n",
+			serverAmount-1,
+		)
 		return
 	}
 	logFile, netErr := os.OpenFile(
